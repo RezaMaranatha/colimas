@@ -9,15 +9,15 @@
 
 <body>
     <div class="container">
+        <div class="alert alert-danger">
+            <i class='fas fa-info-circle'></i>
+        </div>
         <div class="card mt-5">
-            <div>
-                {{ flashSession.output() }}
-            </div>
             <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
                 <strong>Register Mahasiswa</strong>
             </div>
             <div class="card-body">
-                <form method="post" action="{{url('/mahasiswa/register')}}">
+                <form method="post" action="<?= $this->url->get('/users/register') ?>">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" autocomplete="off" class="form-control" placeholder="Email"

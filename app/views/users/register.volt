@@ -17,7 +17,7 @@
                 <strong>Register Mahasiswa</strong>
             </div>
             <div class="card-body">
-                <form method="post" action="<?= $this->url->get('/mahasiswa/register') ?>">
+                <form method="post" action="{{url('/users/register')}}">
                     <div class="form-group">
                         <label>Email</label>
                         <input type="email" name="email" autocomplete="off" class="form-control" placeholder="Email"

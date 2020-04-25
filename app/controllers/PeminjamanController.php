@@ -8,7 +8,7 @@ class PeminjamanController extends ControllerBase
 
     public function indexAction()
     {
-
+        $this->response->redirect('/buku');
     }
 
 }

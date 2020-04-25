@@ -4,21 +4,21 @@ declare(strict_types=1);
 namespace App\Controllers;
 // namespace App\Models;
 
-use App\Models\Mahasiswa;
+use App\Models\Users;
 use App\Validation\UserValidation;
 date_default_timezone_set("Asia/Bangkok");
-class MahasiswaController extends ControllerBase
+class UsersController extends ControllerBase
 {
     public function initialize()
     {
-        $this->view->mahasiswa = Mahasiswa::find();
+        $this->view->users = Users::find();
     }
 
     public function indexAction()
     {
         // echo "this is the landing page";
     }
-    public function addAction()
+    public function loginAction()
     {
         
     }
@@ -44,7 +44,7 @@ class MahasiswaController extends ControllerBase
         $membership_type = 1;
 
         if($pass === $pass2 && $pass != ''){
-            $checkUser = Mahasiswa::findFirst("email = '$email'");
+            $checkUser = Users::findFirst("email = '$email'");
             if($checkUser){
                 $this->flashSession->error('Email sudah dipakai');
                 // $this->response->redirect('/mahasiswa/register');
@@ -52,16 +52,16 @@ class MahasiswaController extends ControllerBase
             }
             else
             {
-                $mahasiswa = new Mahasiswa();
-                $mahasiswa->email=$email;
-                $mahasiswa->nama=$nama;
-                $mahasiswa->pass=$this->security->hash($pass);
-                $mahasiswa->jenis_kel=$jenis_kel;
-                $mahasiswa->membership_type=$membership_type;
-                $mahasiswa->updated_at = date('Y-m-d h:i:sa');
-                $mahasiswa->created_at = date('Y-m-d h:i:sa');
+                $users = new Users();
+                $users->email=$email;
+                $users->nama=$nama;
+                $users->pass=$this->security->hash($pass);
+                $users->jenis_kel=$jenis_kel;
+                $users->membership_type=$membership_type;
+                $users->updated_at = date('Y-m-d h:i:sa');
+                $users->created_at = date('Y-m-d h:i:sa');
                 // Store and check for errors
-                $success = $mahasiswa->save();
+                $success = $users->save();
         
         
                 if($success)
@@ -69,7 +69,7 @@ class MahasiswaController extends ControllerBase
                     $this->flashSession->error('Input data berhasil');
                 }
                 // passing a message to the view
-                $this->response->redirect('/mahasiswa');
+                $this->response->redirect('/users');
             }
         }
         // }

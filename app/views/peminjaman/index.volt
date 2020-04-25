@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,4 +11,4 @@
     <h1>Ini Peminjaman</h1>
 </body>
 
-</html>
+</html> -->

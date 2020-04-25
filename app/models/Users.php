@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Phalcon\Mvc\Model;
 
-class Mahasiswa extends Model
+class Users extends Model
 {
-    public $id_mahasiswa;
+    public $id_user;
     public $nama;
     public $email;
     public $pass;
+    public $pass2;
     public $jenis_kel;
     public $membership_type;
     public $updated_at;
@@ -30,7 +31,7 @@ class Mahasiswa extends Model
         $this->setSchema('dbo');
 
         // Untuk mengeset nama tabel, default : nama class
-        $this->setSource('mahasiswa');
+        $this->setSource('users');
     }
 
     /**
