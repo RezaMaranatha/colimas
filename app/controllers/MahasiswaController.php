@@ -9,11 +9,14 @@ use App\Validation\UserValidation;
 date_default_timezone_set("Asia/Bangkok");
 class MahasiswaController extends ControllerBase
 {
+    public function initialize()
+    {
+        $this->view->mahasiswa = Mahasiswa::find();
+    }
 
     public function indexAction()
     {
         // echo "this is the landing page";
-        $this->view->mahasiswa = Mahasiswa::find();
     }
     public function addAction()
     {

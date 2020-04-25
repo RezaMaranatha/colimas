@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="card mt-5">
-            <div style="border: 0cm;">
+            <div>
                 <?= $this->flashSession->output() ?>
             </div>
             <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
