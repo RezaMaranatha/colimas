@@ -30,7 +30,7 @@
                     </thead>
                     <tbody>
                         <?php foreach ($buku as $b) { ?>
-                        <tr id="myTR">
+                        <tr>
                             <td><?= $b->judul ?></td>
                             <td><?= $b->penulis->nama ?></td>
                             <td><?= (($b->status_buku == 1 ? 'Available' : 'Not Available')) ?></td>

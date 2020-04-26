@@ -12,7 +12,7 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Stream as SessionAdapter;
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Url as UrlResolver;
-
+use Phalcon\Mvc\Model\Manager as ModelsManager;
 /**
  * Shared configuration service
  */
@@ -159,3 +159,10 @@ $di->setShared('dispatcher', function() {
     return $dispatcher;
 
 });
+
+$di->set(
+    "modelsManager",
+    function() {
+        return new ModelsManager();
+    }
+);

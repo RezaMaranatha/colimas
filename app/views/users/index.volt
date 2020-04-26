@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Welcome Users</h1>
+    <h1>Welcome {{ session.get('auth')['nama'] }}</h1>
 </body>
 
 </html>
