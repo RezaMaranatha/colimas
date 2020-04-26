@@ -36,7 +36,8 @@
                             <td>{{(b.status_buku == 1  ? 'Available' : 'Not Available') }}</td>
                             <td>
                                 {% if b.status_buku == 1 %}
-                                <a href="{{url('/peminjaman') }}" class="btn btn-success btn-sm" disabled>Pinjam</a>
+                                <a href="{{url('peminjaman/tambah/'~b.id_buku) }}" class="btn btn-success btn-sm"
+                                    disabled>Pinjam</a>
                                 {% else %}
                                 <button class="btn btn-success btn-sm" disabled>Pinjam</button>
                                 {% endif %}

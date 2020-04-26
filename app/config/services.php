@@ -160,7 +160,7 @@ $di->setShared('dispatcher', function() {
 
 });
 
-$di->set(
+$di->setShared(
     "modelsManager",
     function() {
         return new ModelsManager();

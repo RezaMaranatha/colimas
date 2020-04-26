@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Phalcon\Mvc\Model;
 
-class Users extends Model
+class Peminjaman extends Model
 {
+    public $id_peminjaman;
     public $id_user;
-    public $nama;
-    public $email;
-    public $pass;
-    public $pass2;
-    public $jenis_kel;
-    public $membership_type;
+    public $id_buku;
+    public $tanggal_peminjaman;
+    public $tanggal_pengembalian;
+    public $status_buku;
     public $updated_at;
     public $created_at;
 
@@ -31,15 +30,25 @@ class Users extends Model
         $this->setSchema('dbo');
 
         // Untuk mengeset nama tabel, default : nama class
-        $this->setSource('users');
+        $this->setSource('peminjaman');
 
-        $this->hasMany(
-            'id_peminjaman',
-            Peminjaman::class,
-            'id_peminjaman',
+        $this->belongsTo(
+            'id_user',
+            Users::class,
+            'id_user',
             [
                 'reusable' => true,
-                'alias'    => 'peminjaman'
+                'alias'    => 'user'
+            ]
+        );
+
+        $this->belongsTo(
+            'id_buku',
+            Buku::class,
+            'id_buku',
+            [
+                'reusable' => true,
+                'alias'    => 'buku'
             ]
         );
     }

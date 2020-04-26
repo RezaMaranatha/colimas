@@ -36,7 +36,8 @@
                             <td><?= (($b->status_buku == 1 ? 'Available' : 'Not Available')) ?></td>
                             <td>
                                 <?php if ($b->status_buku == 1) { ?>
-                                <a href="<?= $this->url->get('/peminjaman') ?>" class="btn btn-success btn-sm" disabled>Pinjam</a>
+                                <a href="<?= $this->url->get('peminjaman/tambah/' . $b->id_buku) ?>" class="btn btn-success btn-sm"
+                                    disabled>Pinjam</a>
                                 <?php } else { ?>
                                 <button class="btn btn-success btn-sm" disabled>Pinjam</button>
                                 <?php } ?>
