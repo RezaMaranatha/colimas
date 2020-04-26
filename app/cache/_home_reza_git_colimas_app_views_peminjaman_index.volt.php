@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,6 +9,7 @@
 
 <body>
     <h1>Ini Peminjaman</h1>
+    <a href="<?= $this->url->get('/buku') ?>">Daftar Buku</a>
 </body>
 
-</html> -->
+</html>
