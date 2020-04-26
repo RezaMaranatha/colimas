@@ -15,9 +15,13 @@ class AuthController extends ControllerBase
 
     public function indexAction()
     {
-
+        if(!$this->session->has('auth')){
+            $this->response->redirect('/auth/login');
+        }
+        else {
+            $this->response->redirect('/users');
+        }
     }
-
     public function loginAction()
     {
         if($this->request->isPost()){
@@ -53,7 +57,6 @@ class AuthController extends ControllerBase
                             ]   
                         );
                         $this->response->redirect('/users');
-
                     }
                     else{
                         $this->flashSession->error('Password Salah');

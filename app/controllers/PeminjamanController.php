@@ -13,6 +13,11 @@ class PeminjamanController extends ControllerBase
 {
     public function initialize()
     {
+        // // $this->view->peminjaman = Peminjaman::find();
+        // $this->view->peminjaman = Peminjaman::find('id_user = ');
+        // $temp = $this->session->get(('auth')['id_user']); 
+        $temp =  $this->session->get('auth')['id_user'];
+        $this->view->peminjaman = Peminjaman::findById_user($temp);
         $this->view->buku = Buku::find();
         $this->view->penulis = Penulis::find();
         $this->view->penulis = Tipe::find();
@@ -23,7 +28,6 @@ class PeminjamanController extends ControllerBase
         if(!$this->session->has('auth')){
             $this->response->redirect('/');
         }
-        
     }
 
     public function tambahAction($id)
@@ -45,9 +49,11 @@ class PeminjamanController extends ControllerBase
         $pem = new Peminjaman();
         $pem->id_user=$this->session->get('auth')['id_user'];
         $pem->id_buku=$id;
+        $pem->status_peminjaman=0;
         $pem->tanggal_peminjaman = date('Y-m-d h:i:sa');
         $date = date('Y-m-d h:i:sa');
         $pem->tanggal_pengembalian = strftime("%Y-%m-%d %H:%M:%S", strtotime("$date +7 day"));
+        // $pem->tanggal_pengembalian = NULL;
         $pem->updated_at = date('Y-m-d h:i:sa');
         $pem->created_at = date('Y-m-d h:i:sa');
         // Store and check for errors
