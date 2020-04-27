@@ -1,6 +1,6 @@
 {% extends 'template/template.volt' %}
 {% block title %}
-<title>Daftar Buku</title>
+<title>Upgrade</title>
 {%endblock%}
 {% block content %}
 <div class="container-fluid">
