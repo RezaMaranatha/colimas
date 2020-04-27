@@ -6,7 +6,7 @@
 <div class="container">
     <div class="card mt-5">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
-            <strong>EDIT DATA</strong>
+            <strong>Edit Profil</strong>
         </div>
         <div class="card-header">
             <a href="{{url('/users/profil')}}" class="btn btn-secondary">Kembali</a>
