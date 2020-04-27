@@ -20,9 +20,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/peminjaman')}}">Peminjaman</a>
                 </li>
-                <li class="nav-item navbar-right">
-                    <a class="nav-link" href="{{url('/users/profil')}}">Profil</a>
-                </li>
             </ul>
         </div>
         <div class="navbar-collapse collapse">
@@ -31,7 +28,9 @@
                 <li class="nav-item">
                     <span class="nav-link">Welcome, {{ session.get('auth')['nama'] }}</span>
                 </li>
-
+                <li class="nav-item navbar-right">
+                    <a class="nav-link" href="{{url('/users/profil')}}">Profil</a>
+                </li>
                 <li class="nav-item">
                     <a href="{{url('/auth/logout')}}" class="nav-link">
                         <i class='fas fa-sign-out-alt'></i>

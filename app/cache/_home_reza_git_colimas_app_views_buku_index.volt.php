@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <!-- <?= $this->assets->outputCss() ?> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
@@ -42,7 +41,6 @@
             </ul>
         </div>
     </nav>
-
 </head>
 
 
@@ -52,11 +50,30 @@
 <body>
     
 <div class="container">
+
+    <!-- <form method="POST" action="<?= $this->url->get('/buku/search') ?>">
+        <div>
+            <input class="prompt" type="text" placeholder="Cari koleksi buku..." name="searchKey">
+            <button class="btn btn-success btn-sm" type="submit" value="">Search</button>
+        </div>
+        <br> -->
+    <!-- <select name="searchBy" class="ui dropdown">
+            <option value="judul">Judul Buku</option>
+            <option value="pengarang">Pengarang</option>
+            <option value="kategori">Kategori</option>
+        </select> -->
+    <!-- </form> -->
     <div class="card">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Buku</strong>
         </div>
         <div class="card-header">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="<?= $this->url->get('/buku/search') ?>">
+                <input class="form-control mr-sm-2" type="search" placeholder="Cari Buku" aria-label="Search"
+                    name="searchKey">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <br>
             <!-- <a href="<?= $this->url->get('/supirtruk/tambah') ?>" class="btn btn-primary btn-sm float-left"><span
                         class="fas fa-plus" style="padding-right: 7px;"></span>Input</a> -->
             <?= $this->flashSession->output() ?>

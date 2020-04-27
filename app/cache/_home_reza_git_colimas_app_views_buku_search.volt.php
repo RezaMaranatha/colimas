@@ -1,37 +1,65 @@
-<div class="ui middle aligned center aligned grid">
-    <div class="column">
-        <div class="title">
-            Daftar Buku
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <?= $this->assets->outputCss() ?> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="<?= $this->url->get('/') ?>">Colimas</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $this->url->get('/peminjaman') ?>">Peminjaman</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <a class="nav-link" href="<?= $this->url->get('/users/profil') ?>">Profil</a>
+                </li>
+            </ul>
         </div>
-    </div>
-</div>
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ml-auto">
+                <!-- <p>Welcome <?= $this->session->get('auth')['nama'] ?> </p> -->
+                <li class="nav-item">
+                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
+                </li>
+
+                <li class="nav-item">
+                    <a href="<?= $this->url->get('/auth/logout') ?>" class="nav-link">
+                        <i class='fas fa-sign-out-alt'></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</head>
+
+
+<title>Search Buku</title>
+
+
+<body>
+    
 <div class="ui middle aligned center aligned grid">
 </div>
-<form method="POST" action="<?= $this->url->get('/buku/search') ?>">
-    <div class="ui search item">
-        <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Cari koleksi buku..." name="searchKey">
-            <input class="circular ui brown icon button" type="submit" value="">
-            <i class="search icon"></i>
-        </div>
-        <div class="results"></div>
-    </div>
-    <br>
-    <select name="searchBy" class="ui dropdown">
-        <option value="judul">Judul Buku</option>
-        <option value="pengarang">Pengarang</option>
-        <option value="penerbit">Penerbit</option>
-        <option value="ISBN_ISSN">ISBN/ISSN</option>
-        <option value="kategori">Kategori</option>
-    </select>
-    <div class="ui left pointing brown label">Advanced Search</div>
-</form>
 <div class="container">
     <div class="card">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Buku</strong>
         </div>
         <div class="card-header">
+            <div class="card-header">
+                <a href="<?= $this->url->get('/buku') ?>" class="btn btn-secondary">Kembali</a>
+            </div>
             <!-- <a href="<?= $this->url->get('/supirtruk/tambah') ?>" class="btn btn-primary btn-sm float-left"><span
                     class="fas fa-plus" style="padding-right: 7px;"></span>Input</a> -->
             <?= $this->flashSession->output() ?>
@@ -66,3 +94,7 @@
         </div>
     </div>
 </div>
+
+</body>
+
+</html>

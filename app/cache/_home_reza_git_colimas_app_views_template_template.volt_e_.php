@@ -1,4 +1,4 @@
-a:5:{i:0;s:1980:"<!DOCTYPE html>
+a:5:{i:0;s:1979:"<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,9 +20,6 @@ a:5:{i:0;s:1980:"<!DOCTYPE html>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/peminjaman') ?>">Peminjaman</a>
                 </li>
-                <li class="nav-item navbar-right">
-                    <a class="nav-link" href="<?= $this->url->get('/users/profil') ?>">Profil</a>
-                </li>
             </ul>
         </div>
         <div class="navbar-collapse collapse">
@@ -31,7 +28,9 @@ a:5:{i:0;s:1980:"<!DOCTYPE html>
                 <li class="nav-item">
                     <span class="nav-link">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
                 </li>
-
+                <li class="nav-item navbar-right">
+                    <a class="nav-link" href="<?= $this->url->get('/users/profil') ?>">Profil</a>
+                </li>
                 <li class="nav-item">
                     <a href="<?= $this->url->get('/auth/logout') ?>" class="nav-link">
                         <i class='fas fa-sign-out-alt'></i>
@@ -44,11 +43,11 @@ a:5:{i:0;s:1980:"<!DOCTYPE html>
 </head>
 
 ";s:5:"title";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
-";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:47;}}i:1;s:13:"
+";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:46;}}i:1;s:13:"
 
 <body>
     ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:5:"
-    ";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:51;}}i:2;s:17:"
+    ";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:50;}}i:2;s:17:"
 </body>
 
 </html>";}

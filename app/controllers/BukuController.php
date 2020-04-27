@@ -26,26 +26,36 @@ class BukuController extends ControllerBase
         }
     }
 
-    // public function searchAction(){
-    //     $searchKey =  $this->request->getPost('searchKey');
-    //     $searchBy =  $this->request->getPost('searchBy');
-    //         if($searchBy == 'penulis'){ 
-    //             $buku = new Buku();
-    //             $searchKey = '%'.$searchKey.'%';
-    //             $query = $this->modelsManager->createQuery('SELECT * FROM buku,penulis
-    //             WHERE nama LIKE :searchKey:');
-    //             $results  = $query->execute([
-    //                 'searchKey' => $searchKey,
-    //             ]);
-    //         }else if($searchBy == 'judul'){ 
-    //             $searchKey = '%'.$searchKey.'%';
-    //             $query = $this->modelsManager->createQuery('SELECT * FROM Buku
-    //             WHERE judul = :searchKey:');
-    //             $results  = $query->execute([
-    //                 'searchKey' => $searchKey,
-    //             ]);
-    //         }
-    //     $this->view->results = $results;
-    // }
+    public function searchAction(){
+        $searchKey =  $this->request->getPost('searchKey');
+        $searchBy =  $this->request->getPost('searchBy');
+        $searchKey = '%'.$searchKey.'%';
+            if($searchBy == 'penulis'){ 
+                $searchKey = '%'.$searchKey.'%';
+                $query = $this->modelsManager->createQuery('SELECT * FROM buku,penulis
+                WHERE nama LIKE :searchKey:');
+                $results  = $query->execute([
+                    'searchKey' => $searchKey,
+                ]);
+            }else if($searchBy == 'judul'){ 
+                $searchKey = '%'.$searchKey.'%';
+                $query = $this->modelsManager->createQuery('SELECT * FROM Buku
+                WHERE judul = :searchKey:');
+                $results  = $query->execute([
+                    'searchKey' => $searchKey,
+                ]);
+            }
+            else{ 
+                $results = Buku::query()
+                    ->where('judul LIKE :judul:')
+                    ->bind(
+                        [
+                            'judul' => $searchKey,
+                        ]
+                    )
+                    ->execute();
+            }
+        $this->view->results = $results;
+    }
 }
 

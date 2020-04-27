@@ -1,37 +1,19 @@
-<div class="ui middle aligned center aligned grid">
-    <div class="column">
-        <div class="title">
-            Daftar Buku
-        </div>
-    </div>
-</div>
+{% extends 'template/template.volt' %}
+{% block title %}
+<title>Search Buku</title>
+{%endblock%}
+{% block content %}
 <div class="ui middle aligned center aligned grid">
 </div>
-<form method="POST" action="{{ url('/buku/search') }}">
-    <div class="ui search item">
-        <div class="ui icon input">
-            <input class="prompt" type="text" placeholder="Cari koleksi buku..." name="searchKey">
-            <input class="circular ui brown icon button" type="submit" value="">
-            <i class="search icon"></i>
-        </div>
-        <div class="results"></div>
-    </div>
-    <br>
-    <select name="searchBy" class="ui dropdown">
-        <option value="judul">Judul Buku</option>
-        <option value="pengarang">Pengarang</option>
-        <option value="penerbit">Penerbit</option>
-        <option value="ISBN_ISSN">ISBN/ISSN</option>
-        <option value="kategori">Kategori</option>
-    </select>
-    <div class="ui left pointing brown label">Advanced Search</div>
-</form>
 <div class="container">
     <div class="card">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Buku</strong>
         </div>
         <div class="card-header">
+            <div class="card-header">
+                <a href="{{url('/buku')}}" class="btn btn-secondary">Kembali</a>
+            </div>
             <!-- <a href="{{url('/supirtruk/tambah')}}" class="btn btn-primary btn-sm float-left"><span
                     class="fas fa-plus" style="padding-right: 7px;"></span>Input</a> -->
             {{ flashSession.output() }}
@@ -66,3 +48,4 @@
         </div>
     </div>
 </div>
+{% endblock %}

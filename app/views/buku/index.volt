@@ -4,11 +4,30 @@
 {%endblock%}
 {% block content %}
 <div class="container">
+
+    <!-- <form method="POST" action="{{ url('/buku/search') }}">
+        <div>
+            <input class="prompt" type="text" placeholder="Cari koleksi buku..." name="searchKey">
+            <button class="btn btn-success btn-sm" type="submit" value="">Search</button>
+        </div>
+        <br> -->
+    <!-- <select name="searchBy" class="ui dropdown">
+            <option value="judul">Judul Buku</option>
+            <option value="pengarang">Pengarang</option>
+            <option value="kategori">Kategori</option>
+        </select> -->
+    <!-- </form> -->
     <div class="card">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Buku</strong>
         </div>
         <div class="card-header">
+            <form class="form-inline my-2 my-lg-0" method="POST" action="{{ url('/buku/search') }}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Cari Buku" aria-label="Search"
+                    name="searchKey">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <br>
             <!-- <a href="{{url('/supirtruk/tambah')}}" class="btn btn-primary btn-sm float-left"><span
                         class="fas fa-plus" style="padding-right: 7px;"></span>Input</a> -->
             {{ flashSession.output() }}

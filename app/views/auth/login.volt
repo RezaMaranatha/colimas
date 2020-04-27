@@ -40,8 +40,7 @@
                             Login
                         </button>
                     </div>
-
-                    <div class="text-center p-t-136">
+                    <div class="text-center p-t-23 p-b-70">
                         <span class="txt1"> Don't have an account? <br>
                             <a class="txt2" href="{{url('auth/register') }}">
                                 Create your Account
