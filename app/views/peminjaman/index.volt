@@ -3,8 +3,8 @@
 <title>Peminjaman</title>
 {%endblock%}
 {% block content %}
-<div class="container">
-    <div class="card">
+<div class="container-fluid">
+    <div div class="mx-auto" style="padding-top: 20px;">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Peminjaman</strong>
         </div>

@@ -14,19 +14,23 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
+                <?php if ($this->session->get('auth')) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/peminjaman') ?>">Peminjaman</a>
                 </li>
+                <?php } else { ?>
+                <!-- <h1>hello</h1> -->
+                <?php } ?>
             </ul>
         </div>
         <div class="navbar-collapse collapse">
+            <?php if ($this->session->get('auth')) { ?>
             <ul class="navbar-nav ml-auto">
-                <!-- <p>Welcome <?= $this->session->get('auth')['nama'] ?> </p> -->
                 <li class="nav-item">
-                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
+                    <span class="nav-link active">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
                 </li>
                 <li class="nav-item navbar-right">
                     <a class="nav-link" href="<?= $this->url->get('/users/profil') ?>">Profil</a>
@@ -38,6 +42,18 @@
                     </a>
                 </li>
             </ul>
+            <?php } else { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item navbar-right">
+                    <a class="nav-link active" href="<?= $this->url->get('/auth/login') ?>">Login</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <a href="<?= $this->url->get('/auth/register') ?>" class="nav-link active">
+                        <span>Register</span>
+                    </a>
+                </li>
+            </ul>
+            <?php } ?>
         </div>
     </nav>
 </head>
@@ -48,8 +64,8 @@
 
 <body>
     
-<div class="container">
-    <div class="card">
+<div class="container-fluid">
+    <div div class="mx-auto" style="padding-top: 20px;">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Peminjaman</strong>
         </div>

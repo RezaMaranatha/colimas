@@ -14,19 +14,23 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="{{url('/buku')}}">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
+                {% if session.get('auth') %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/peminjaman')}}">Peminjaman</a>
                 </li>
+                {% else %}
+                <!-- <h1>hello</h1> -->
+                {%endif%}
             </ul>
         </div>
         <div class="navbar-collapse collapse">
+            {% if session.get('auth') %}
             <ul class="navbar-nav ml-auto">
-                <!-- <p>Welcome {{ session.get('auth')['nama'] }} </p> -->
                 <li class="nav-item">
-                    <span class="nav-link">Welcome, {{ session.get('auth')['nama'] }}</span>
+                    <span class="nav-link active">Welcome, {{ session.get('auth')['nama'] }}</span>
                 </li>
                 <li class="nav-item navbar-right">
                     <a class="nav-link" href="{{url('/users/profil')}}">Profil</a>
@@ -38,6 +42,18 @@
                     </a>
                 </li>
             </ul>
+            {% else %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item navbar-right">
+                    <a class="nav-link active" href="{{url('/auth/login')}}">Login</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <a href="{{url('/auth/register')}}" class="nav-link active">
+                        <span>Register</span>
+                    </a>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </nav>
 </head>

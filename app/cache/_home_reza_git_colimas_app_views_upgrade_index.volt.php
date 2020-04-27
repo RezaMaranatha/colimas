@@ -14,19 +14,23 @@
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
+                <?php if ($this->session->get('auth')) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/peminjaman') ?>">Peminjaman</a>
                 </li>
+                <?php } else { ?>
+                <!-- <h1>hello</h1> -->
+                <?php } ?>
             </ul>
         </div>
         <div class="navbar-collapse collapse">
+            <?php if ($this->session->get('auth')) { ?>
             <ul class="navbar-nav ml-auto">
-                <!-- <p>Welcome <?= $this->session->get('auth')['nama'] ?> </p> -->
                 <li class="nav-item">
-                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
+                    <span class="nav-link active">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
                 </li>
                 <li class="nav-item navbar-right">
                     <a class="nav-link" href="<?= $this->url->get('/users/profil') ?>">Profil</a>
@@ -38,6 +42,18 @@
                     </a>
                 </li>
             </ul>
+            <?php } else { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item navbar-right">
+                    <a class="nav-link active" href="<?= $this->url->get('/auth/login') ?>">Login</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <a href="<?= $this->url->get('/auth/register') ?>" class="nav-link active">
+                        <span>Register</span>
+                    </a>
+                </li>
+            </ul>
+            <?php } ?>
         </div>
     </nav>
 </head>
@@ -51,29 +67,27 @@
 <div class="container-fluid">
     <div class="card-deck" style="padding-top: 50px;">
         <div class="card">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <img class="card-img-top" src="/images/bronze.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Bronze</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                <p class="card-text">Default membership lama peminjaman sepanjang 3 hari</p>
+                <a href="<?= $this->url->get('/upgrade/update') ?>" class="btn btn-primary">Choose</a>
             </div>
         </div>
         <div class="card">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <img class="card-img-top" src="/images/silver.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Silver</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                <p class="card-text">Perpanjangan lama peminjaman menjadi 5 hari</p>
+                <a href="<?= $this->url->get('/upgrade/update') ?>" class="btn btn-primary">Choose</a>
             </div>
         </div>
         <div class="card">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <img class="card-img-top" src="/images/gold.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Gold</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This card has even longer content than the first to show that equal height action.</p>
-                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                <p class="card-text">Perpanjangan lama peminjaman menjadi 7 hari</p>
+                <a href="<?= $this->url->get('/upgrade/update') ?>" class="btn btn-primary">Choose</a>
             </div>
         </div>
     </div>

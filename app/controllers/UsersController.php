@@ -19,6 +19,8 @@ class UsersController extends ControllerBase
         if(!$this->session->has('auth')){
             $this->response->redirect('/auth/login');
         }
+
+        $this->response->redirect('/users/profil');
     }
     
     public function profilAction() 

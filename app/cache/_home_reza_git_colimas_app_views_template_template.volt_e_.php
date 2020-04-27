@@ -1,4 +1,4 @@
-a:5:{i:0;s:1979:"<!DOCTYPE html>
+a:5:{i:0;s:2642:"<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,19 +14,23 @@ a:5:{i:0;s:1979:"<!DOCTYPE html>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
+                <?php if ($this->session->get('auth')) { ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= $this->url->get('/peminjaman') ?>">Peminjaman</a>
                 </li>
+                <?php } else { ?>
+                <!-- <h1>hello</h1> -->
+                <?php } ?>
             </ul>
         </div>
         <div class="navbar-collapse collapse">
+            <?php if ($this->session->get('auth')) { ?>
             <ul class="navbar-nav ml-auto">
-                <!-- <p>Welcome <?= $this->session->get('auth')['nama'] ?> </p> -->
                 <li class="nav-item">
-                    <span class="nav-link">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
+                    <span class="nav-link active">Welcome, <?= $this->session->get('auth')['nama'] ?></span>
                 </li>
                 <li class="nav-item navbar-right">
                     <a class="nav-link" href="<?= $this->url->get('/users/profil') ?>">Profil</a>
@@ -38,16 +42,28 @@ a:5:{i:0;s:1979:"<!DOCTYPE html>
                     </a>
                 </li>
             </ul>
+            <?php } else { ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item navbar-right">
+                    <a class="nav-link active" href="<?= $this->url->get('/auth/login') ?>">Login</a>
+                </li>
+                <li class="nav-item navbar-right">
+                    <a href="<?= $this->url->get('/auth/register') ?>" class="nav-link active">
+                        <span>Register</span>
+                    </a>
+                </li>
+            </ul>
+            <?php } ?>
         </div>
     </nav>
 </head>
 
 ";s:5:"title";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:1:"
-";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:46;}}i:1;s:13:"
+";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:62;}}i:1;s:13:"
 
 <body>
     ";s:7:"content";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:5:"
-    ";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:50;}}i:2;s:17:"
+    ";s:4:"file";s:55:"/home/reza/git/colimas/app/views/template/template.volt";s:4:"line";i:66;}}i:2;s:17:"
 </body>
 
 </html>";}

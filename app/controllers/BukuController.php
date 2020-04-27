@@ -21,9 +21,9 @@ class BukuController extends ControllerBase
 
     public function indexAction()
     {
-        if(!$this->session->has('auth')){
-            $this->response->redirect('/');
-        }
+        // if(!$this->session->has('auth')){
+        //     $this->response->redirect('/');
+        // }
     }
 
     public function searchAction(){
