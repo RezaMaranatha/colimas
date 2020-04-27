@@ -66,18 +66,13 @@
     
 <div class="ui middle aligned center aligned grid">
 </div>
-<div class="container">
-    <div class="card">
+<div class="container-fluid">
+    <div div class="mx-auto" style="padding-top: 20px;">
         <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
             <strong>List Buku</strong>
         </div>
         <div class="card-header">
-            <div class="card-header">
-                <a href="<?= $this->url->get('/buku') ?>" class="btn btn-secondary">Kembali</a>
-            </div>
-            <!-- <a href="<?= $this->url->get('/supirtruk/tambah') ?>" class="btn btn-primary btn-sm float-left"><span
-                    class="fas fa-plus" style="padding-right: 7px;"></span>Input</a> -->
-            <?= $this->flashSession->output() ?>
+            <a href="<?= $this->url->get('/buku') ?>" class="btn btn-secondary">Kembali</a>
         </div>
         <div class="card-body table-responsive p-0" style="height: 500px;">
             <table class="table table-bordered table-hover table-striped table-head-fixed">
