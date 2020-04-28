@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Colimas</title>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, 0.85);">
+    <!-- <?= $this->assets->outputCss() ?> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- <div class="mx-auto order-0"> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $this->url->get('/index/about') ?>">About<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= $this->url->get('/index/contact') ?>">Contact</a>
+                    <a class="nav-link" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
                 <?php if ($this->session->get('auth')) { ?>
                 <li class="nav-item">
@@ -60,68 +57,57 @@
 
         </div>
     </nav>
-    <style>
+    <!-- <style>
         body {
             background-image: url('/images/bg.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
-
-        .test {
-            background-color: rgba(255, 255, 255, 0.85);
-
-            background-repeat: no-repeat;
-            background-size: 50%;
-            width: 35%;
-            min-height: 50vh;
-            padding-top: 20px;
-            border-radius: 2%;
-        }
-
-        .test h1 {
-            text-align: center;
-        }
-
-        .test img {
-            display: block;
-            margin-left: 125px;
-            margin-right: auto;
-        }
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-            transition-duration: 0.4s;
-        }
-
-        .btn {
-            border: 2px solid #008CBA;
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            background-color: white;
-        }
-
-        .btn:hover {
-            background-color: cornflowerblue;
-        }
-    </style>
+    </style> -->
 </head>
 
+
+<title>Peminjaman</title>
+
+
 <body>
-    <div class="container-fluid" style="padding-top: 50px;">
-        <div class="mx-auto test">
-            <h1>Welcome to Colimas</h1>
-            <img src="/images/logo-large-resize.png" alt="">
-            <!-- <a class="btn btn-primary" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a> -->
-            <div class="button">
-                <a href="/buku" class="btn btn-hover">View Collections</a>
-            </div>
+    
+<div class="container-fluid">
+    <div div class="mx-auto" style="padding-top: 20px;">
+        <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
+            <strong>List Peminjaman</strong>
+        </div>
+        <div class="card-body table-responsive p-0" style="height: 500px;">
+            <table class="table table-bordered table-hover table-striped table-head-fixed">
+                <thead>
+                    <tr>
+                        <th>Judul Buku</th>
+                        <th>Tanggal Peminjaman</th>
+                        <th>Tanggal Pengembalian</th>
+                        <th>Status Peminjaman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($peminjaman as $p) { ?>
+                    <tr>
+                        <td><?= $p->buku->judul ?></td>
+                        <?php if ($p->status_peminjaman == 1) { ?>
+                        <td><?= $p->tanggal_peminjaman ?></td>
+                        <td><?= $p->tanggal_pengembalian ?></td>
+                        <td>Dipinjam</td>
+                        <?php } else { ?>
+                        <td>Menunggu</td>
+                        <td>Menunggu</td>
+                        <td>Menunggu Konfirmasi Pustakawan</td>
+                        <?php } ?>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+
 </body>
 
 </html>

@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Colimas</title>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, 0.85);">
+    <!-- <?= $this->assets->outputCss() ?> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- <div class="mx-auto order-0"> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,10 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= $this->url->get('/index/about') ?>">About<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= $this->url->get('/index/contact') ?>">Contact</a>
+                    <a class="nav-link" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
                 <?php if ($this->session->get('auth')) { ?>
                 <li class="nav-item">
@@ -60,68 +57,56 @@
 
         </div>
     </nav>
-    <style>
+    <!-- <style>
         body {
             background-image: url('/images/bg.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
-
-        .test {
-            background-color: rgba(255, 255, 255, 0.85);
-
-            background-repeat: no-repeat;
-            background-size: 50%;
-            width: 35%;
-            min-height: 50vh;
-            padding-top: 20px;
-            border-radius: 2%;
-        }
-
-        .test h1 {
-            text-align: center;
-        }
-
-        .test img {
-            display: block;
-            margin-left: 125px;
-            margin-right: auto;
-        }
-
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-            transition-duration: 0.4s;
-        }
-
-        .btn {
-            border: 2px solid #008CBA;
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            background-color: white;
-        }
-
-        .btn:hover {
-            background-color: cornflowerblue;
-        }
-    </style>
+    </style> -->
 </head>
 
+
+<title>Daftar Buku</title>
+
+
 <body>
-    <div class="container-fluid" style="padding-top: 50px;">
-        <div class="mx-auto test">
-            <h1>Welcome to Colimas</h1>
-            <img src="/images/logo-large-resize.png" alt="">
-            <!-- <a class="btn btn-primary" href="<?= $this->url->get('/buku') ?>">Daftar Buku <span class="sr-only">(current)</span></a> -->
-            <div class="button">
-                <a href="/buku" class="btn btn-hover">View Collections</a>
-            </div>
+    
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header text-center" style="background-color:#343A40; color: #FFFFFF;">
+            <strong>Edit Profil</strong>
+        </div>
+        <div class="card-header">
+            <a href="<?= $this->url->get('/users/profil') ?>" class="btn btn-secondary">Kembali</a>
+        </div>
+        <div class="card-body">
+
+            <form autocomplete="off" method="post" action="<?= $this->url->get('users/update/') ?>" enctype="multipart/form-data">
+                <div style="padding-bottom: 20px;">
+                    <label for="coverimage">Upload Profile Picture</label>
+                    <input type="file" class="form-control-file" name="profilepict">
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" autocomplete="off" name="nama" class="form-control" placeholder="Username"
+                        value="<?= $user->nama ?>">
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label><br>
+                    <input type="radio" id="laki" name="jkel" value="L" style="display: inline;" required>
+                    <label for="laki" style="padding-right: 10pt;">Laki-Laki</label>
+                    <input type="radio" id="perempuan" name="jkel" value="P" style="display: inline;" required>
+                    <label for="perempuan">Perempuan</label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success" value="Simpan">
+                </div>
+            </form>
         </div>
     </div>
+</div>
+
 </body>
 
 </html>

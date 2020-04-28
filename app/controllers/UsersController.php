@@ -30,8 +30,6 @@ class UsersController extends ControllerBase
             $this->response->redirect('/auth/login');
         }
         $usr = Users::findFirstById_user($this->session->get('auth')['id_user']);
-        $upg = Upgrade::findFirstById_user($this->session->get('auth')['id_user']);
-        $this->view->upgr = $upg;
         $this->view->user = $usr; 
     }
     public function editAction() 

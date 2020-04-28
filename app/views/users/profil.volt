@@ -69,11 +69,6 @@
                                     <p>Gold</p>
                                     {% endif %}
                                 </div>
-                                <!-- <div class="col-md-4">
-                                    {% if upgr.status_upgrade == 1 %}
-                                    <p>Bronze</p>
-                                    {% endif %}
-                                </div> -->
                             </div>
                         </div>
                     </div>

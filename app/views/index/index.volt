@@ -22,9 +22,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/index/contact')}}">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('/buku')}}">Daftar Buku <span class="sr-only">(current)</span></a>
-                </li>
                 {% if session.get('auth') %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/peminjaman')}}">Peminjaman</a>
@@ -69,11 +66,62 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .test {
+            background-color: rgba(255, 255, 255, 0.85);
+
+            background-repeat: no-repeat;
+            background-size: 50%;
+            width: 35%;
+            min-height: 50vh;
+            padding-top: 20px;
+            border-radius: 2%;
+        }
+
+        .test h1 {
+            text-align: center;
+        }
+
+        .test img {
+            display: block;
+            margin-left: 125px;
+            margin-right: auto;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            transition-duration: 0.4s;
+        }
+
+        .btn {
+            border: 2px solid #008CBA;
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            background-color: white;
+        }
+
+        .btn:hover {
+            background-color: cornflowerblue;
+        }
     </style>
 </head>
 
 <body>
-    <!-- <h1>Welcome to Colimas</h1> -->
+    <div class="container-fluid" style="padding-top: 50px;">
+        <div class="mx-auto test">
+            <h1>Welcome to Colimas</h1>
+            <img src="/images/logo-large-resize.png" alt="">
+            <!-- <a class="btn btn-primary" href="{{url('/buku')}}">Daftar Buku <span class="sr-only">(current)</span></a> -->
+            <div class="button">
+                <a href="/buku" class="btn btn-hover">View Collections</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
