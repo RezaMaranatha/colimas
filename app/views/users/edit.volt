@@ -13,8 +13,11 @@
         </div>
         <div class="card-body">
 
-            <form autocomplete="off" method="post" action="{{ url('users/update/') }}">
-                {{ flashSession.output() }}
+            <form autocomplete="off" method="post" action="{{ url('users/update/') }}" enctype="multipart/form-data">
+                <div style="padding-bottom: 20px;">
+                    <label for="coverimage">Upload Profile Picture</label>
+                    <input type="file" class="form-control-file" name="profilepict">
+                </div>
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" autocomplete="off" name="nama" class="form-control" placeholder="Username"

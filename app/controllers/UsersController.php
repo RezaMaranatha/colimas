@@ -5,6 +5,7 @@ namespace App\Controllers;
 // namespace App\Models;
 
 use App\Models\Users;
+use App\Models\Upgrade;
 use App\Validation\UserValidation;
 date_default_timezone_set("Asia/Bangkok");
 class UsersController extends ControllerBase
@@ -29,6 +30,8 @@ class UsersController extends ControllerBase
             $this->response->redirect('/auth/login');
         }
         $usr = Users::findFirstById_user($this->session->get('auth')['id_user']);
+        $upg = Upgrade::findFirstById_user($this->session->get('auth')['id_user']);
+        $this->view->upgr = $upg;
         $this->view->user = $usr; 
     }
     public function editAction() 
@@ -47,6 +50,15 @@ class UsersController extends ControllerBase
             $this->response->redirect('/auth/login');
         }
         $usr = Users::findFirstById_user($this->session->get('auth')['id_user']);
+
+            if($this->request->hasFiles())
+            {   
+                unlink($usr->profile_pict);
+                $image = $this->request->getUploadedFiles()[0];
+                $path = 'img/'.$image->getName();
+                $usr->profile_pict = $path;
+                $image->moveTo($path);
+            }
     
             $nama = $this->request->getPost('nama','string');
             $jenis_kel = $this->request->getPost('jkel','string');
@@ -66,8 +78,5 @@ class UsersController extends ControllerBase
             }
     
             $this->response->redirect('/users/profil');
-    }
-    public function upgradeAction(){
-        
     }
 }

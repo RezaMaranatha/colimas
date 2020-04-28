@@ -8,7 +8,10 @@
 </head>
 
 <body>
-    <h1>This is the about page</h1>
+    <div class="container-fluid">
+        <h1>This is the about page</h1>
+        <a href="{{url('/')}}" class="btn btn-primary">Back</a>
+    </div>
 </body>
 
 </html>

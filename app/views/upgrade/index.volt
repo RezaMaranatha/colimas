@@ -10,15 +10,15 @@
             <div class="card-body">
                 <h5 class="card-title">Bronze</h5>
                 <p class="card-text">Default membership lama peminjaman sepanjang 3 hari</p>
-                <a href="{{url('/upgrade/update')}}" class="btn btn-primary">Choose</a>
+                <a href="{{url('/upgrade/update/1')}}" class="btn btn-primary">Choose</a>
             </div>
         </div>
         <div class="card">
-            <img class="card-img-top" src="/images/silver.jpg" alt="Card image cap">
+            <img class="card-img-top" src="images/silver.jpg" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">Silver</h5>
                 <p class="card-text">Perpanjangan lama peminjaman menjadi 5 hari</p>
-                <a href="{{url('/upgrade/update')}}" class="btn btn-primary">Choose</a>
+                <a href="{{url('/upgrade/update/2')}}" class="btn btn-primary">Choose</a>
             </div>
         </div>
         <div class="card">
@@ -26,7 +26,7 @@
             <div class="card-body">
                 <h5 class="card-title">Gold</h5>
                 <p class="card-text">Perpanjangan lama peminjaman menjadi 7 hari</p>
-                <a href="{{url('/upgrade/update')}}" class="btn btn-primary">Choose</a>
+                <a href="{{url('/upgrade/update/3')}}" class="btn btn-primary">Choose</a>
             </div>
         </div>
     </div>

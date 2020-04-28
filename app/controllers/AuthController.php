@@ -56,7 +56,7 @@ class AuthController extends ControllerBase
                                 'membership' => $user->membership_type,
                             ]   
                         );
-                        $this->response->redirect('/users');
+                        $this->response->redirect('/');
                     }
                     else{
                         $this->flashSession->error('Password Salah');
@@ -72,18 +72,6 @@ class AuthController extends ControllerBase
     }
     public function registerAction()
     {
-        // $validation = new UserValidation();
-        // $messages = $validation->validate($_POST);
-        // if(count($messages))
-        // {
-        //     foreach ($messages as $message)
-        //     {
-        //         $this->flashSession->error($message->getMessage());
-        //     }
-        //     $this->response->redirect('/user/tambah');
-        // }
-        // else
-        // {
         $users = new Users();
 
         $email = $this->request->getPost('email', 'string');
@@ -92,6 +80,17 @@ class AuthController extends ControllerBase
         $pass2 = $this->request->getPost('pass2','string');
         $jenis_kel = $this->request->getPost('jkel','string');
         $membership_type = 1;
+        if($this->request->hasFiles())
+        {
+            $image = $this->request->getUploadedFiles()[0];
+            $path = 'img/'.$image->getName();
+            $users->profile_pict = $path;
+            $image->moveTo($path);
+        }
+        else 
+        {
+            $users->profile_pict = 'img/basicpict.png';
+        }
 
         if($pass === $pass2 && $pass != ''){
             $checkUser = Users::findFirst("email = '$email'");
@@ -102,7 +101,6 @@ class AuthController extends ControllerBase
             }
             else
             {
-                // $users = new Users();
 
                 $users->email=$email;
                 $users->nama=$nama;
@@ -120,7 +118,7 @@ class AuthController extends ControllerBase
                     $this->flashSession->error('Input data berhasil');
                 }
                 // passing a message to the view
-                $this->response->redirect('/users');
+                $this->response->redirect('/auth/login');
             }
         }
         // }

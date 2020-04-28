@@ -8,8 +8,12 @@
 </head>
 
 <body>
-    <h1>Jeremy Vijay Wongso</h1>
-    <h1>Reza Adipatria Maranatha</h1>
+    <div class="container-fluid">
+        <h1>Jeremy Vijay Wongso</h1>
+        <h1>Reza Adipatria Maranatha</h1>
+        <a href="{{url('/')}}" class="btn btn-primary">Back</a>
+    </div>
+
 </body>
 
 </html>

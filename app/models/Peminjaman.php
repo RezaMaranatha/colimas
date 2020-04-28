@@ -11,7 +11,7 @@ class Peminjaman extends Model
     public $id_buku;
     public $tanggal_peminjaman;
     public $tanggal_pengembalian;
-    public $status_buku;
+    public $status_peminjaman;
     public $updated_at;
     public $created_at;
 

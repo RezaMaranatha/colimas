@@ -13,8 +13,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                            alt="" />
+                        <img src="{{url(user.profile_pict)}}" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -28,6 +27,55 @@
                                     aria-controls="home" aria-selected="true">About</a>
                             </li>
                         </ul>
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="row ">
+                                <div class="col-md-3">
+                                    <label>Username</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{ user.nama }}</p>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-3">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <p>{{ user.email }}</p>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-3">
+                                    <label>Gender</label>
+                                </div>
+                                <div class="col-md-4">
+                                    {% if user.jenis_kel  == 'L' %}
+                                    <p>Laki-Laki</p>
+                                    {% else %}
+                                    <p>Perempuan</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>Member</label>
+                                </div>
+                                <div class="col-md-4">
+                                    {% if user.membership_type  == 1 %}
+                                    <p>Bronze</p>
+                                    {% elseif user.membership_type  == 2 %}
+                                    <p>Silver</p>
+                                    {% elseif user.membership_type  == 3 %}
+                                    <p>Gold</p>
+                                    {% endif %}
+                                </div>
+                                <!-- <div class="col-md-4">
+                                    {% if upgr.status_upgrade == 1 %}
+                                    <p>Bronze</p>
+                                    {% endif %}
+                                </div> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -37,54 +85,13 @@
                     <a href="{{url('/upgrade') }}" class="profile-edit-btn">Upgrade Member</a>
                 </div>
             </div>
-            <div class="container">
+            <!-- <div class="container">
                 <div class="tab-content profile-tab" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row justify-content-md-center">
-                            <div class="col-md-2">
-                                <label>Username</label>
-                            </div>
-                            <div class="col-md-2">
-                                <p>{{ user.nama }}</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center">
-                            <div class="col-md-2">
-                                <label>Email</label>
-                            </div>
-                            <div class="col-md-2">
-                                <p>{{ user.email }}</p>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center">
-                            <div class="col-md-2">
-                                <label>Gender</label>
-                            </div>
-                            <div class="col-md-2">
-                                {% if user.jenis_kel  == 'L' %}
-                                <p>Laki-Laki</p>
-                                {% else %}
-                                <p>Perempuan</p>
-                                {% endif %}
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center">
-                            <div class="col-md-2">
-                                <label>Member</label>
-                            </div>
-                            <div class="col-md-2">
-                                {% if user.membership_type  == 1 %}
-                                <p>Bronze</p>
-                                {% elseif user.membership_type  == 2 %}
-                                <p>Silver</p>
-                                {% elseif user.membership_type  == 3 %}
-                                <p>Gold</p>
-                                {% endif %}
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
-            </div>
+            </div> -->
         </form>
     </div>
     {% endblock %}

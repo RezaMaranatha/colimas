@@ -8,6 +8,7 @@ class Upgrade extends Model
 {
     public $id_upgrade;
     public $id_user;
+    public $wanted_membership;
     public $tanggal_pengajuan;
     public $tanggal_penyetujuan;
     public $status_upgrade;

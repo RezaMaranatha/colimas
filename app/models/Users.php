@@ -10,9 +10,9 @@ class Users extends Model
     public $nama;
     public $email;
     public $pass;
-    public $pass2;
     public $jenis_kel;
     public $membership_type;
+    public $profile_pict;
     public $updated_at;
     public $created_at;
 

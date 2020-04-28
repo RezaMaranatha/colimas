@@ -11,7 +11,8 @@
             aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{{url('/')}}">Colimas</a>
+        <a href="{{url('/')}}" class="navbar-brand"><img src="/images/logo-small-navbar-resize.png" width="120"
+                alt=""></a>
         <!-- </div> -->
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -24,6 +25,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/buku')}}">Daftar Buku <span class="sr-only">(current)</span></a>
                 </li>
+                {% if session.get('auth') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/peminjaman')}}">Peminjaman</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
         <div class="navbar-collapse collapse">
@@ -45,10 +51,10 @@
             {% else %}
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item navbar-right">
-                    <a class="nav-link active" href="{{url('/auth/login')}}">Login</a>
+                    <a class="nav-link" href="{{url('/auth/login')}}">Login</a>
                 </li>
                 <li class="nav-item navbar-right">
-                    <a href="{{url('/auth/register')}}" class="nav-link active">
+                    <a href="{{url('/auth/register')}}" class="nav-link">
                         <span>Register</span>
                     </a>
                 </li>

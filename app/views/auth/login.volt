@@ -22,13 +22,10 @@
                                     <div class="form-label-group">
                                         <input type="email" name="email" class="form-control"
                                             placeholder="Email address" required autofocus>
-                                        <!-- <label for="inputEmail">Email address</label> -->
                                     </div>
-
                                     <div class="form-label-group">
                                         <input type="password" name="pass" class="form-control" placeholder="Password"
                                             required>
-                                        <!-- <label for="inputPassword">Password</label> -->
                                     </div>
                                     <button
                                         class="btn btn-lg btn-success btn-block btn-login text-uppercase font-weight-bold mb-2"

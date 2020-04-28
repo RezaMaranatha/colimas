@@ -13,7 +13,7 @@
             <form class="form-inline" method="POST" action="{{ url('/buku/search') }}">
                 <input class="form-control mr-sm-2" type="search" placeholder="Cari Buku" aria-label="Search"
                     name="searchKey">
-                <button class="btn btn-outline-success " type="submit">Search</button>
+                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <br>
         </div>
