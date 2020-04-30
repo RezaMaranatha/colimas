@@ -53,6 +53,7 @@ class PeminjamanController extends ControllerBase
         $pem->tanggal_peminjaman = date('Y-m-d h:i:sa');
         $date = date('Y-m-d h:i:sa');
         $pem->tanggal_pengembalian = strftime("%Y-%m-%d %H:%M:%S", strtotime("$date +7 day"));
+        $pem->expected_pengembalian = strftime("%Y-%m-%d %H:%M:%S", strtotime("$date +7 day"));
         // $pem->tanggal_pengembalian = NULL;
         $pem->updated_at = date('Y-m-d h:i:sa');
         $pem->created_at = date('Y-m-d h:i:sa');

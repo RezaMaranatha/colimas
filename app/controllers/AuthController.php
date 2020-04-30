@@ -95,9 +95,9 @@ class AuthController extends ControllerBase
         if($pass === $pass2 && $pass != ''){
             $checkUser = Users::findFirst("email = '$email'");
             if($checkUser){
+                $this->view->disable();
                 $this->flashSession->error('Email sudah dipakai');
-                // $this->response->redirect('/mahasiswa/register');
-                // $this->view->disable();
+                $this->response->redirect('/auth/register');
             }
             else
             {
