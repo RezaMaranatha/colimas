@@ -1,2 +1,2 @@
 # Colimas (College Library Management System)
-## Framework Phalcon, Arsitektur MVC. database MySQL
+## Framework Phalcon, Arsitektur MVC, Database MySQL
